@@ -16,8 +16,6 @@
 #include <iostream>
 #include <limits>
 
-inline void clean_buff() {
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-}
+void clean_buff();
 
 #endif //PISCINE_CPP_UTILS_H

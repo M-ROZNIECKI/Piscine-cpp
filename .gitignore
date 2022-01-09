@@ -1,6 +1,6 @@
 .idea
 
-ex00/megaphone
-ex01/annuaire
-test/test
-/ex02/test
+Module 00/ex00/megaphone
+Module 00/ex01/annuaire
+Module 00/ex02/test
+Module 00/test/test
