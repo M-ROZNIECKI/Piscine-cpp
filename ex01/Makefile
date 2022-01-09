@@ -14,10 +14,9 @@ NAME = annuaire
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC =		Contact.cpp\
-			main.cpp
+SRC =		$(wildcard *.cpp)
 
-HEADER =	Contact.hpp
+HEADER =	$(wildcard *.hpp)
 
 all: $(NAME)
 

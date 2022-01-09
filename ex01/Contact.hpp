@@ -6,28 +6,29 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 18:27:50 by mrozniec          #+#    #+#             */
-/*   Updated: 2021/04/07 16:38:14 by mrozniec         ###   ########lyon.fr   */
+/*   Updated: 2022/01/08 22:34:13 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEF_CONTACT
 # define DEF_CONTACT
-# include <string>
+
+# include <cstring>
 # include <iomanip>
 # include <iostream>
 # include <ctime>
 # include <limits>
 # include <sstream>
+# include "utils.hpp"
 
-class Contact
-{
+class Contact {
 	public:
 
 	Contact();
 
-	Contact(std::string firstName, std::string lastName, std::string nickname, std::string login, std::string zipCode, std::string email, std::string phoneNumber,
-			struct std::tm birthdayDate, std::string favoriteMeal, std::string underwearColor,
-			std::string darkestSecret);
+	Contact(const std::string& firstName, const std::string& lastName, const std::string& nickname, const std::string& login, const std::string& zipCode, const std::string& email, const std::string& phoneNumber,
+			struct std::tm birthdayDate, const std::string& favoriteMeal, const std::string& underwearColor,
+			const std::string& darkestSecret);
 
 	void aff_coordinate() const;
 

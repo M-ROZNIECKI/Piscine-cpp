@@ -6,31 +6,46 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 20:55:04 by mrozniec          #+#    #+#             */
-/*   Updated: 2021/04/07 16:38:14 by mrozniec         ###   ########lyon.fr   */
+/*   Updated: 2022/01/08 22:57:00 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-Contact::Contact() {
-}
+Contact::Contact() {}
 
-Contact::Contact(std::string firstName, std::string lastName, std::string nickname, std::string login,
-				 std::string zipCode, std::string email, std::string phoneNumber, struct std::tm birthdayDate,
-				 std::string favoriteMeal, std::string underwearColor, std::string darkestSecret): first_name(firstName), last_name(lastName), nickname(nickname),
-																								   login(login), postal_addr(zipCode), email_addr(email), phone_number(phoneNumber),
-																								   birthday_date(birthdayDate), favorite_meal(favoriteMeal), underwear_color(underwearColor), darkest_secret(darkestSecret)
-				 {
-				 }
+Contact::Contact(const std::string& firstName,
+				 const std::string& lastName,
+				 const std::string& nickname,
+				 const std::string& login,
+				 const std::string& zipCode,
+				 const std::string& email,
+				 const std::string& phoneNumber,
+				 struct std::tm birthdayDate,
+				 const std::string& favoriteMeal,
+				 const std::string& underwearColor,
+				 const std::string& darkestSecret):
+				 	 first_name(firstName),
+					 last_name(lastName),
+					 nickname(nickname),
+					 login(login),
+					 postal_addr(zipCode),
+					 email_addr(email),
+					 phone_number(phoneNumber),
+					 birthday_date(birthdayDate),
+					 favorite_meal(favoriteMeal),
+					 underwear_color(underwearColor),
+					 darkest_secret(darkestSecret)
+				 {}
 
-Contact Contact::add_contact()
-{
-	std::string first_name, last_name, nickname, login, postal_addr, email_addr, phone_number, favorite_meal, underwear_color, darkest_secret, temp_str;
-	struct std::tm birthday_date;
-	int fail_conv;
+Contact Contact::add_contact() {
+	std::string first_name, last_name, nickname, login, postal_addr, email_addr,
+	phone_number, favorite_meal, underwear_color, darkest_secret, temp_str;
+
+	struct std::tm birthday_date = {};
 
 	std::cout << "enter the first name: ";
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	clean_buff();
 	while (first_name.empty())
 		std::getline(std::cin, first_name);
 	std::cout << "enter the last name: ";
@@ -41,74 +56,76 @@ Contact Contact::add_contact()
 		std::getline(std::cin, nickname);
 	std::cout << "enter the login: ";
 	std::cin >> login;
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	clean_buff();
 	std::cout << "enter the postal address: ";
 	while (postal_addr.empty())
 		std::getline(std::cin, postal_addr);
 	std::cout << "enter the email address: ";
 	std::cin >> email_addr;
 	std::cout << "enter the phone number: ";
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	clean_buff();
 	while (phone_number.empty())
 		std::getline(std::cin, phone_number);
-	fail_conv = 0;
-	do
-	{
-		if (fail_conv)
-		{
+
+	bool fail_conv = false;
+	do {
+		if (fail_conv) {
 			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			clean_buff();
 			std::cout << "Error reading time\n";
 		}
-		fail_conv = 0;
+
+		fail_conv = false;
+
 		std::cout << "enter the birthday date at the format 18/06/1958: ";
 		std::cin >> temp_str;
-		if (temp_str.size() < 7)
-			fail_conv = 1;
-		else if (!(std::istringstream(temp_str.substr(0, 2)) >> birthday_date.tm_mday) || birthday_date.tm_mday > 31 || birthday_date.tm_mday < 1)
-			fail_conv = 1;
-		else if (!(std::istringstream(temp_str.substr(3, 2)) >> birthday_date.tm_mon) || --birthday_date.tm_mon > 11 || birthday_date.tm_mon < 0)
-			fail_conv = 1;
-		else if (!(std::istringstream(temp_str.substr(6, 4)) >> birthday_date.tm_year) || birthday_date.tm_year > 9999 || birthday_date.tm_year < 0)
-			fail_conv = 1;
-		else if (temp_str[2] != '/' || temp_str[5] != '/')
-			fail_conv = 1;
-	}while (fail_conv);
+
+		//ToDo check if in the future ?
+		if (temp_str.size() < 7 ||
+		(!(std::istringstream(temp_str.substr(0, 2)) >> birthday_date.tm_mday) || birthday_date.tm_mday > 31 || birthday_date.tm_mday < 1) ||
+		(!(std::istringstream(temp_str.substr(3, 2)) >> birthday_date.tm_mon) || --birthday_date.tm_mon > 11 || birthday_date.tm_mon < 0) ||
+		(!(std::istringstream(temp_str.substr(6, 4)) >> birthday_date.tm_year) || birthday_date.tm_year > 9999 || birthday_date.tm_year < 0) ||
+		(temp_str[2] != '/' || temp_str[5] != '/'))
+			fail_conv = true;
+
+	} while (fail_conv);
+
 	std::cout << "enter the favorite meal: ";
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	clean_buff();
 	while (favorite_meal.empty())
 		std::getline(std::cin, favorite_meal);
+
 	std::cout << "enter the underwear color: ";
 	while (underwear_color.empty())
 		std::getline(std::cin, underwear_color);
+
 	std::cout << "enter the darkest secret: ";
 	while (darkest_secret.empty())
 		std::getline(std::cin, darkest_secret);
+
 	std::cout << "thanks you for adding a new Contact\n";
 
-	return Contact(first_name, last_name, nickname, login, postal_addr, email_addr, phone_number, birthday_date, favorite_meal, underwear_color, darkest_secret);
+	return Contact(first_name, last_name, nickname, login, postal_addr,
+				  email_addr, phone_number, birthday_date, favorite_meal,
+				  underwear_color, darkest_secret);
 }
 
-std::string Contact::get_first_name() const
-{
-	return (first_name);
+std::string Contact::get_first_name() const {
+	return first_name;
 }
 
-void Contact::get_birthday() const
-{
+void Contact::get_birthday() const {
 	std::cout << birthday_date.tm_mday << '/' << birthday_date.tm_mon + 1 << '/' << birthday_date.tm_year << std::endl;
 }
 
-void Contact::aff_coordinate() const
-{
+void Contact::aff_coordinate() const {
 	std::cout << "postal address: " << postal_addr << "\n";
 	std::cout << "email address:  " << email_addr << "\n";
 	std::cout << "phone number:   " << phone_number << "\n";
 }
 
-std::string Contact::aff_base(std::string command)
-{
-	int size;
+std::string Contact::aff_base(std::string command) {
+	std::basic_string<char>::size_type size;
 
 	if (command == "first name")
 		command.assign(first_name);
@@ -119,37 +136,35 @@ std::string Contact::aff_base(std::string command)
 	else
 		command = "";
 	size = command.size();
-	if (size > 10)
-	{
+	if (size > 10) {
 		command.resize(9);
 		command += ".";
-	}
-	else
+	} else
 		command.insert(0, (10 - size), ' ');
+
 	command += "|";
-	return (command);
+
+	return command;
 }
 
-std::string Contact::aff_base(std::string command, unsigned int index)
-{
-	int size;
+std::string Contact::aff_base(std::string command, unsigned int index) {
+	std::basic_string<char>::size_type size;
 	std::ostringstream convert;
 
-	if (command == "id")
-	{
+	if (command == "id") {
 		convert << index;
 		command = convert.str();
-	}
-	else
+	} else
 		command = "";
+
 	size = command.size();
-	if (size > 10)
-	{
+	if (size > 10) {
 		command.resize(9);
 		command += ".";
-	}
-	else
+	} else
 		command.insert(0, (10 - size), ' ');
+
 	command += "|";
-	return (command);
+
+	return command;
 }
