@@ -6,43 +6,29 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 20:55:04 by mrozniec          #+#    #+#             */
-/*   Updated: 2022/01/08 22:57:00 by mrozniec         ###   ########.fr       */
+/*   Updated: 2022/01/18 18:29:41 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-Contact::Contact() {}
+Contact::Contact() {
+}
 
 Contact::Contact(const std::string& firstName,
 				 const std::string& lastName,
 				 const std::string& nickname,
-				 const std::string& login,
-				 const std::string& zipCode,
-				 const std::string& email,
 				 const std::string& phoneNumber,
-				 struct std::tm birthdayDate,
-				 const std::string& favoriteMeal,
-				 const std::string& underwearColor,
 				 const std::string& darkestSecret):
 				 	 first_name(firstName),
 					 last_name(lastName),
 					 nickname(nickname),
-					 login(login),
-					 postal_addr(zipCode),
-					 email_addr(email),
 					 phone_number(phoneNumber),
-					 birthday_date(birthdayDate),
-					 favorite_meal(favoriteMeal),
-					 underwear_color(underwearColor),
-					 darkest_secret(darkestSecret)
-				 {}
+					 darkest_secret(darkestSecret) {
+}
 
 Contact Contact::add_contact() {
-	std::string first_name, last_name, nickname, login, postal_addr, email_addr,
-	phone_number, favorite_meal, underwear_color, darkest_secret, temp_str;
-
-	struct std::tm birthday_date = {};
+	std::string first_name, last_name, nickname, login, phone_number, darkest_secret;
 
 	std::cout << "enter the first name: ";
 	clean_buff();
@@ -54,73 +40,23 @@ Contact Contact::add_contact() {
 	std::cout << "enter the nickname: ";
 	while (nickname.empty())
 		std::getline(std::cin, nickname);
-	std::cout << "enter the login: ";
-	std::cin >> login;
-	clean_buff();
-	std::cout << "enter the postal address: ";
-	while (postal_addr.empty())
-		std::getline(std::cin, postal_addr);
-	std::cout << "enter the email address: ";
-	std::cin >> email_addr;
 	std::cout << "enter the phone number: ";
-	clean_buff();
 	while (phone_number.empty())
 		std::getline(std::cin, phone_number);
-
-	bool fail_conv = false;
-	do {
-		if (fail_conv) {
-			std::cin.clear();
-			clean_buff();
-			std::cout << "Error reading time\n";
-		}
-
-		fail_conv = false;
-
-		std::cout << "enter the birthday date at the format 18/06/1958: ";
-		std::cin >> temp_str;
-
-		//ToDo check if in the future ?
-		if (temp_str.size() < 7 ||
-		(!(std::istringstream(temp_str.substr(0, 2)) >> birthday_date.tm_mday) || birthday_date.tm_mday > 31 || birthday_date.tm_mday < 1) ||
-		(!(std::istringstream(temp_str.substr(3, 2)) >> birthday_date.tm_mon) || --birthday_date.tm_mon > 11 || birthday_date.tm_mon < 0) ||
-		(!(std::istringstream(temp_str.substr(6, 4)) >> birthday_date.tm_year) || birthday_date.tm_year > 9999 || birthday_date.tm_year < 0) ||
-		(temp_str[2] != '/' || temp_str[5] != '/'))
-			fail_conv = true;
-
-	} while (fail_conv);
-
-	std::cout << "enter the favorite meal: ";
-	clean_buff();
-	while (favorite_meal.empty())
-		std::getline(std::cin, favorite_meal);
-
-	std::cout << "enter the underwear color: ";
-	while (underwear_color.empty())
-		std::getline(std::cin, underwear_color);
-
 	std::cout << "enter the darkest secret: ";
 	while (darkest_secret.empty())
 		std::getline(std::cin, darkest_secret);
 
 	std::cout << "thanks you for adding a new Contact\n";
 
-	return Contact(first_name, last_name, nickname, login, postal_addr,
-				  email_addr, phone_number, birthday_date, favorite_meal,
-				  underwear_color, darkest_secret);
+	return Contact(first_name, last_name, nickname, phone_number, darkest_secret);
 }
 
 std::string Contact::get_first_name() const {
 	return first_name;
 }
 
-void Contact::get_birthday() const {
-	std::cout << birthday_date.tm_mday << '/' << birthday_date.tm_mon + 1 << '/' << birthday_date.tm_year << std::endl;
-}
-
 void Contact::aff_coordinate() const {
-	std::cout << "postal address: " << postal_addr << "\n";
-	std::cout << "email address:  " << email_addr << "\n";
 	std::cout << "phone number:   " << phone_number << "\n";
 }
 
