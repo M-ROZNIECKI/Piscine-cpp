@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 15:15:22 by mrozniec          #+#    #+#             */
-/*   Updated: 2022/01/12 19:16:54 by mrozniec         ###   ########.fr       */
+/*   Updated: 2022/01/18 13:40:54 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,20 @@
 */
 
 Fixed::Fixed() : value(0) {
-	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int value) {
-	std::cout << "Int constructor called" << std::endl;
 	this->value = 0;
 	this->value = value << nb_frac;
 }
 
 Fixed::Fixed(const float value) : value(static_cast<int>(roundf(value * (1 << nb_frac)))) {
-	std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &a) : value(a.getRawBits()) {
-	std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed::~Fixed() {
-	std::cout << "Destructor called" << std::endl;
 }
 
 /*
@@ -43,7 +38,6 @@ Fixed::~Fixed() {
 */
 
 Fixed &Fixed::operator=(const Fixed &a) {
-	std::cout << "Assignation operator called" << std::endl;
 	this->value = a.getRawBits();
 	return *this;
 }

@@ -30,9 +30,8 @@ Fixed::Fixed(const float value) : value(static_cast<int>(roundf(value * (1 << nb
 	std::cout << "Float constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &a) {
+Fixed::Fixed(const Fixed &a) : value(a.getRawBits()) {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = a;
 }
 
 Fixed::~Fixed() {
