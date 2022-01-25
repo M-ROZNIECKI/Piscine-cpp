@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 20:55:04 by mrozniec          #+#    #+#             */
-/*   Updated: 2022/01/18 18:29:41 by mrozniec         ###   ########.fr       */
+/*   Updated: 2022/01/25 19:13:03 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,29 +31,38 @@ Contact Contact::add_contact() {
 	std::string first_name, last_name, nickname, login, phone_number, darkest_secret;
 
 	std::cout << "enter the first name: ";
-	clean_buff();
-	while (first_name.empty())
+	while (first_name.empty()) {
 		std::getline(std::cin, first_name);
+		std::cin.clear();
+		clearerr(stdin);
+	}
 	std::cout << "enter the last name: ";
-	while (last_name.empty())
+	while (last_name.empty()) {
 		std::getline(std::cin, last_name);
+		std::cin.clear();
+		clearerr(stdin);
+	}
 	std::cout << "enter the nickname: ";
-	while (nickname.empty())
+	while (nickname.empty()) {
 		std::getline(std::cin, nickname);
+		std::cin.clear();
+		clearerr(stdin);
+	}
 	std::cout << "enter the phone number: ";
-	while (phone_number.empty())
+	while (phone_number.empty()) {
 		std::getline(std::cin, phone_number);
+		std::cin.clear();
+		clearerr(stdin);
+	}
 	std::cout << "enter the darkest secret: ";
-	while (darkest_secret.empty())
+	while (darkest_secret.empty()) {
 		std::getline(std::cin, darkest_secret);
+		std::cin.clear();
+		clearerr(stdin);
+	}
 
-	std::cout << "thanks you for adding a new Contact\n";
-
+	std::cout << "thanks you for adding a new Contact" << std::endl;
 	return Contact(first_name, last_name, nickname, phone_number, darkest_secret);
-}
-
-std::string Contact::get_first_name() const {
-	return first_name;
 }
 
 void Contact::aff_coordinate() const {

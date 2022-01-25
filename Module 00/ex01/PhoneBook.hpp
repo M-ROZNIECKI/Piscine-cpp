@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.hpp                                          :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrozniec <mrozniec@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 22:54:01 by mrozniec          #+#    #+#             */
-/*   Updated: 2022/01/08 22:54:01 by mrozniec         ###   ########.fr       */
+/*   Created: 2022/01/25 13:48:22 by mrozniec          #+#    #+#             */
+/*   Updated: 2022/01/25 17:46:37 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PISCINE_CPP_UTILS_H
-#define PISCINE_CPP_UTILS_H
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
-# include <iostream>
-# include <cstdio>
-# include <limits>
+#include "Contact.hpp"
 
-void clean_buff();
+class PhoneBook {
+	private:
+		Contact	directory[8];
+		int		numEntry;
+		void	ft_search();
 
-#endif //PISCINE_CPP_UTILS_H
+	public:
+		PhoneBook();
+		void	cmd_add();
+		void	cmd_search();
+};
+
+#endif //PHONEBOOK_HPP

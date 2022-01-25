@@ -32,8 +32,6 @@ class Contact {
 
 	void aff_coordinate() const;
 
-	std::string get_first_name() const;
-
 	static Contact add_contact();
 
 	std::string aff_base(std::string command, unsigned int index);
