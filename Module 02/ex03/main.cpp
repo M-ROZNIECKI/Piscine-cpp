@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:48:15 by mrozniec          #+#    #+#             */
-/*   Updated: 2022/01/18 15:57:46 by mrozniec         ###   ########.fr       */
+/*   Updated: 2022/01/26 17:26:19 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ int main() {
 	else
 		std::cout << "is outside the triangle" << std::endl;
 
-	std::cout << "a.x=" << a.getX() << " a.x_assign=" << a.getAssignX();
-	std::cout << " a.y=" << a.getY() << " a.y_assign=" << a.getAssignY() << std::endl;
+	std::cout << "a.x= " << a.getX();
+	std::cout << " a.y= " << a.getY() << std::endl;
 	a = point1;
-	std::cout << "a.x=" << a.getX() << " a.x_assign=" << a.getAssignX();
-	std::cout << " a.y=" << a.getY() << " a.y_assign=" << a.getAssignY() << std::endl;
+	std::cout << "a = point1" << std::endl;
+	std::cout << "a.x= " << a.getX();
+	std::cout << " a.y= " << a.getY() << std::endl;
 	return 0;
 }
