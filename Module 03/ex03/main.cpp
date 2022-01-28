@@ -6,15 +6,15 @@
 /*   By: mrozniec <mrozniec@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:48:15 by mrozniec          #+#    #+#             */
-/*   Updated: 2022/01/26 22:48:26 by mrozniec         ###   ########.fr       */
+/*   Updated: 2022/01/28 19:21:29 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main() {
-	FragTrap default_frag;
-	FragTrap test1("test1");
+	DiamondTrap default_frag;
+	DiamondTrap test1("test1");
 
 	default_frag.highFivesGuys();
 	std::cout << "default_frag has " << default_frag.getHp() << " HP" << std::endl;
@@ -24,6 +24,8 @@ int main() {
 	std::cout << "default_frag Name is " << default_frag.getName() << std::endl;
 	default_frag = test1;
 	default_frag.highFivesGuys();
+	default_frag.whoAmI();
+	default_frag.guardGate();
 	std::cout << "default_frag has " << default_frag.getHp() << " HP" << std::endl;
 	std::cout << "default_frag Name is " << default_frag.getName() << std::endl;
 	default_frag.attack(test1.getName());
