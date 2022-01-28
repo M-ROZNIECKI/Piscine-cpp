@@ -16,9 +16,6 @@ HumanB::HumanB(const std::string &name) : name(name) {
 	weapon_type = NULL;
 }
 
-HumanB::HumanB(const std::string &name, Weapon &weapon_type) : name(name), weapon_type(&weapon_type) {
-}
-
 void	HumanB::setWeapon(Weapon &n_weapon_type) {
 	weapon_type = &n_weapon_type;
 }

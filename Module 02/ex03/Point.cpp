@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:16:30 by mrozniec          #+#    #+#             */
-/*   Updated: 2022/01/26 17:19:45 by mrozniec         ###   ########.fr       */
+/*   Updated: 2022/01/26 21:39:54 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,7 @@ Point::~Point() {
 ** Operator overload
 */
 
-Point &Point::operator=(const Point& a) {
-	if (this == &a)
-		return *this;
-	this->~Point();
-	new (this) Point(a);
+Point &Point::operator=(const Point&) {
 	return *this;
 }
 

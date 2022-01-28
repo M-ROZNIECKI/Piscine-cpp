@@ -12,7 +12,7 @@
 
 #include "Weapon.hpp"
 
-Weapon::Weapon() {}
+Weapon::Weapon() : type("default") {}
 
 Weapon::Weapon(const std::string &new_type) : type(new_type) {
 }
