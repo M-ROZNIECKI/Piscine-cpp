@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PISCINE_CPP_HUMANB_HPP
-#define PISCINE_CPP_HUMANB_HPP
+#ifndef HUMANB_HPP
+#define HUMANB_HPP
 # include <string>
 # include <iostream>
 # include "Weapon.hpp"
@@ -29,4 +29,4 @@ class HumanB {
 };
 
 
-#endif //PISCINE_CPP_HUMANB_HPP
+#endif //HUMANB_HPP

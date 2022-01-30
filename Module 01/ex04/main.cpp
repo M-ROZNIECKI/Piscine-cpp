@@ -36,6 +36,8 @@ int main(int argc, char **argv) {
 		temp = argv[1];
 		temp.append(".replace");
 		out_file.open(temp.c_str());
+		if (!out_file.is_open())
+			return 1;
 		out_file << res;
 		out_file.close();
 	}

@@ -12,10 +12,10 @@
 
 #include "Zombie.hpp"
 
-Zombie::Zombie() {}
+Zombie::Zombie() : name("default") {
+}
 
 Zombie::Zombie(std::string name) : name(name) {
-
 }
 
 Zombie::~Zombie() {
