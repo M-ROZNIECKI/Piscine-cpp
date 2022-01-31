@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrozniec <mrozniec@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/28 23:25:57 by mrozniec          #+#    #+#             */
-/*   Updated: 2022/01/28 23:30:28 by mrozniec         ###   ########.fr       */
+/*   Created: 2022/01/30 18:22:29 by mrozniec          #+#    #+#             */
+/*   Updated: 2022/01/30 21:40:58 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 # include <iostream>
-# include "Animal.hpp"
 
-class Dog : public Animal {
+class Brain {
+
+	private:
+		std::string ideas[100];
 
 	public:
-		Dog();
-		Dog(const Dog&);
-		~Dog();
+		Brain();
+		Brain(std::string*, int sizeTab = 100);
+		Brain(const Brain&);
+		~Brain();
 
-		Dog	&operator=(const Dog&);
+		Brain	&operator=(const Brain&);
 
-		void	makeSound() const;
+		const std::string *getIdeas() const;
+		void	setIdeas(const std::string*, int sizeTab = 100);
 
 };
 
-#endif //DOG_HPP
+#endif //BRAIN_HPP

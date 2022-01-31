@@ -17,15 +17,12 @@
 */
 
 Point::Point() : x(Fixed()), y(Fixed()) {
-
 }
 
 Point::Point(const Fixed x, const Fixed y) : x(x), y(y) {
-
 }
 
 Point::Point(const Point &a) : x(a.getX()), y(a.getY()) {
-
 }
 
 Point::~Point() {

@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrozniec <mrozniec@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/28 23:25:57 by mrozniec          #+#    #+#             */
-/*   Updated: 2022/01/28 23:30:28 by mrozniec         ###   ########.fr       */
+/*   Created: 2022/01/28 22:27:44 by mrozniec          #+#    #+#             */
+/*   Updated: 2022/01/28 22:27:44 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 # include <iostream>
-# include "Animal.hpp"
 
-class Dog : public Animal {
+class WrongAnimal {
 
-	public:
-		Dog();
-		Dog(const Dog&);
-		~Dog();
+protected:
+	std::string	type;
 
-		Dog	&operator=(const Dog&);
+public:
+	WrongAnimal();
+	WrongAnimal(const std::string& type);
+	WrongAnimal(const WrongAnimal&);
+	~WrongAnimal();
 
-		void	makeSound() const;
+	WrongAnimal	&operator=(const WrongAnimal&);
+
+	std::string	getType() const;
+
+	void	makeSound() const;
 
 };
 
-#endif //DOG_HPP
+
+#endif //WRONGANIMAL_HPP
