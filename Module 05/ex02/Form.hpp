@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 20:46:46 by mrozniec          #+#    #+#             */
-/*   Updated: 2022/02/02 23:19:25 by mrozniec         ###   ########.fr       */
+/*   Updated: 2022/02/02 23:24:12 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ public:
 	Form();
 	Form(const std::string& docName, const unsigned int signLvl, const unsigned int execLvl);
 	Form(const Form&);
-	~Form();
+	virtual ~Form();
 
 	Form	&operator=(const Form&);
 
@@ -42,7 +42,7 @@ public:
 	unsigned int		getSignGrade() const;
 	unsigned int		getExecGrade() const;
 
-	void	beSigned(Bureaucrat&);
+	virtual void	beSigned(Bureaucrat&) = 0;
 
 	class GradeTooHighExcept : public std::logic_error {
 	public:
