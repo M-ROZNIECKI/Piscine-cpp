@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 19:05:54 by mrozniec          #+#    #+#             */
-/*   Updated: 2022/02/02 20:29:30 by mrozniec         ###   ########.fr       */
+/*   Updated: 2022/02/02 22:33:58 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,26 @@ void Bureaucrat::decGrade() {
 	grade++;
 }
 
-Bureaucrat::GradeTooHighExcept::GradeTooHighExcept() : std::logic_error("Grade was set too high\n") {
+void Bureaucrat::signForm(Form &doc) {
+	if (!doc.getSignature()) {
+		try {
+			doc.beSigned(*this);
+			std::cout << this->getName() << " signed " << doc.getName() << std::endl;
+		} catch (std::exception & e) {
+			std::cout << this->getName() << " couldn't sign " << doc.getName();
+			std::cout << " because his " << e.what()  << std::endl;
+		}
+	}
+	else {
+		std::cout << this->getName() << " couldn't sign " << doc.getName();
+		std::cout << " because it was already signed" << std::endl;
+	}
 }
 
-Bureaucrat::GradeTooLowExcept::GradeTooLowExcept() : std::logic_error("Grade was set too low\n") {
+Bureaucrat::GradeTooHighExcept::GradeTooHighExcept() : std::logic_error("Grade was set too high") {
+}
+
+Bureaucrat::GradeTooLowExcept::GradeTooLowExcept() : std::logic_error("Grade was set too low") {
 }
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &a) {

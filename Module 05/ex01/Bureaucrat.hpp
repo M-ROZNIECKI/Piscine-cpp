@@ -6,14 +6,17 @@
 /*   By: mrozniec <mrozniec@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 17:41:10 by mrozniec          #+#    #+#             */
-/*   Updated: 2022/02/02 20:22:16 by mrozniec         ###   ########.fr       */
+/*   Updated: 2022/02/02 22:27:11 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
-#include <iostream>
-#include <stdexcept>
+# include <iostream>
+# include <stdexcept>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
 
@@ -43,6 +46,7 @@ class Bureaucrat {
 
 		void	incGrade();
 		void	decGrade();
+		void	signForm(Form &);
 
 };
 
