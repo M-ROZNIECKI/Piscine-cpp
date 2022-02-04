@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:31:31 by mrozniec          #+#    #+#             */
-/*   Updated: 2022/02/04 19:20:18 by mrozniec         ###   ########.fr       */
+/*   Updated: 2022/02/04 21:13:59 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@
 class Intern {
 
 	private:
-		std::string call[3];
-		Form*	(* form[3])(const std::string&);
-
 		static Form*	shrubConstructor(const std::string&);
 		static Form*	robotConstructor(const std::string&);
 		static Form*	presConstructor(const std::string&);
