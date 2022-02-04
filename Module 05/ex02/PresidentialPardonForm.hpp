@@ -12,11 +12,32 @@
 
 #ifndef PRESIDENTIALPARDONFORM_HPP
 #define PRESIDENTIALPARDONFORM_HPP
+# include <iostream>
+# include <stdexcept>
+# include "Form.hpp"
 
+class PresidentialPardonForm : public Form {
 
-class PresidentialPardonForm {
+private:
+	std::string target;
 
+public:
+	PresidentialPardonForm();
+	PresidentialPardonForm(const std::string& istarget);
+	PresidentialPardonForm(const PresidentialPardonForm&);
+	virtual ~PresidentialPardonForm();
+
+	PresidentialPardonForm	&operator=(const PresidentialPardonForm&);
+
+	const std::string&	getTarget() const;
+
+	void	beSigned(Bureaucrat&);
+	void	execute(Bureaucrat const & executor) const;
+
+	class NoSignatureExcept : public std::logic_error {
+	public:
+		NoSignatureExcept();
+	};
 };
-
 
 #endif //PRESIDENTIALPARDONFORM_HPP

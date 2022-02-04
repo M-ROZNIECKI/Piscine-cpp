@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 20:47:38 by mrozniec          #+#    #+#             */
-/*   Updated: 2022/02/02 22:30:39 by mrozniec         ###   ########.fr       */
+/*   Updated: 2022/02/04 14:07:55 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,17 @@ unsigned int Form::getExecGrade() const {
 }
 
 void Form::beSigned(Bureaucrat &bureaucrat) {
-	if (bureaucrat.getGrade() > this->signGrade)
-		throw GradeTooLowExcept();
-	this->setSignature();
+	checkLvl(this->signGrade, bureaucrat);
+	this->setSignature(true);
 }
 
-void Form::setSignature() {
-	this->signature = true;
+void Form::setSignature(bool settings) {
+	this->signature = settings;
+}
+
+void Form::checkLvl(unsigned int lvl, const Bureaucrat &bureaucrat) {
+	if (bureaucrat.getGrade() > lvl)
+		throw GradeTooLowExcept();
 }
 
 Form::GradeTooHighExcept::GradeTooHighExcept() : std::logic_error("Grade was too high") {

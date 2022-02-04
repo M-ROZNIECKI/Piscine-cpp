@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 20:46:46 by mrozniec          #+#    #+#             */
-/*   Updated: 2022/02/02 23:24:12 by mrozniec         ###   ########.fr       */
+/*   Updated: 2022/02/04 16:40:27 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ private:
 	const unsigned int	execGrade;
 
 protected:
-	void				setSignature();
+	void				setSignature(bool);
 
 public:
 	Form();
@@ -42,7 +42,9 @@ public:
 	unsigned int		getSignGrade() const;
 	unsigned int		getExecGrade() const;
 
+	static void		checkLvl(unsigned int, const Bureaucrat&);
 	virtual void	beSigned(Bureaucrat&) = 0;
+	virtual void	execute(Bureaucrat const & executor) const = 0;
 
 	class GradeTooHighExcept : public std::logic_error {
 	public:

@@ -6,12 +6,14 @@
 /*   By: mrozniec <mrozniec@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 17:29:27 by mrozniec          #+#    #+#             */
-/*   Updated: 2022/02/02 22:30:39 by mrozniec         ###   ########.fr       */
+/*   Updated: 2022/02/04 18:04:47 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main() {
 /*
@@ -46,20 +48,40 @@ int main() {
 	} catch (std::exception & e) {
 		std::cout << e.what();
 	}
-*//*
+*/
 	try {
-		Bureaucrat	test1("test1");
-		Bureaucrat	test2("test2", 16);
-		Form	a42("inscription", 42, 42);
+		Bureaucrat	test1("test1", 25);
+		Bureaucrat	test2("test2", 4);
+//		PresidentialPardonForm	a42;
+		ShrubberyCreationForm	a42;
+//		RobotomyRequestForm	a42;
 		std::cout << a42;
 		test1.signForm(a42);
 		test2.signForm(a42);
 		test2.signForm(a42);
 		std::cout << a42;
-		Form	b36("laisser passer bleu 36", 1, 0);
+		test2.executeForm(a42);
+/*		test2.executeForm(a42);
+		test2.executeForm(a42);
+		test2.executeForm(a42);
+		test2.executeForm(a42);
+		test2.executeForm(a42);
+		test2.executeForm(a42);
+		test2.executeForm(a42);
+*/		test1.executeForm(a42);
 	} catch (std::exception & e) {
 		std::cout << e.what() << std::endl;
 	}
-*/
+	try {
+		Bureaucrat	test("test", 4);
+//		PresidentialPardonForm	a42;
+//		ShrubberyCreationForm	a42;
+		RobotomyRequestForm	a42;
+		std::cout << a42;
+		test.executeForm(a42);
+	} catch (std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
+
 	return 0;
 }
