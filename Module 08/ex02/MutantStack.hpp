@@ -14,16 +14,17 @@ class MutantStack : public std::stack<T, Container> {
                 std::vector<T> content;
                 unsigned int position;
             public:
-                explicit iterator(MutantStack &stack, long position = 0);
+                explicit iterator(const MutantStack &stack, long position = 0);
+                ~iterator();
                 void operator++();
                 void operator--();
                 bool operator!=(const iterator &other) const;
                 T operator*() const;
         };
 
-        iterator begin();
+        iterator begin() const;
 
-        iterator end();
+        iterator end() const;
 };
 
 #include "MutantStack.tpp"

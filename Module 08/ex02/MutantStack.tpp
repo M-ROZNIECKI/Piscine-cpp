@@ -1,21 +1,25 @@
 template <class T, class Container>
-typename MutantStack<T, Container>::iterator MutantStack<T, Container>::begin() {
-    MutantStack<T, Container> tmpStack = *this;
-    return iterator(tmpStack);
+typename MutantStack<T, Container>::iterator MutantStack<T, Container>::begin() const {
+    return iterator(*this);
 }
 
 template <class T, class Container>
-typename MutantStack<T, Container>::iterator MutantStack<T, Container>::end() {
-    MutantStack<T, Container> tmpStack = *this;
-    return iterator(tmpStack, tmpStack.size());
+typename MutantStack<T, Container>::iterator MutantStack<T, Container>::end() const {
+    return iterator(*this, this->size());
 }
 
 template <class T, class Container>
-MutantStack<T, Container>::iterator::iterator(MutantStack &stack, long position): position(position) {
-    for (; !stack.empty(); stack.pop())
-        content.push_back(stack.top());
+MutantStack<T, Container>::iterator::iterator(const MutantStack &stack, long position): position(position) {
+    MutantStack<T, Container> clone = MutantStack(stack);
+    for (; !clone.empty(); clone.pop())
+        content.push_back(clone.top());
 
     std::reverse(content.begin(), content.end());
+}
+
+template<class T, class Container>
+MutantStack<T, Container>::iterator::~iterator() {
+    content.clear();
 }
 
 template <class T, class Container>
