@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 13:00:02 by mrozniec          #+#    #+#             */
-/*   Updated: 2022/02/06 15:18:10 by mrozniec         ###   ########.fr       */
+/*   Updated: 2022/02/06 15:50:23 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ class Array {
 	public:
 		Array();
 		Array(unsigned int n);
-		Array(const Array&);
+		Array(const Array<T>&);
 		~Array();
 
 		Array<T>&	operator=(const Array<T>&);
-		T&			operator[](int index);
+		T&			operator[](int index) const;
 
-		unsigned int	size();
+		unsigned int	size() const;
 
 		class OutOfRange : public std::logic_error {
 			public:

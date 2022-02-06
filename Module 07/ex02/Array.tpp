@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 14:54:12 by mrozniec          #+#    #+#             */
-/*   Updated: 2022/02/06 15:22:13 by mrozniec         ###   ########.fr       */
+/*   Updated: 2022/02/06 15:48:51 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ Array<T>::Array(unsigned int n) : arr(new T[n]), n(n) {
 }
 
 template<typename T>
-Array<T>::Array(const Array &old) : arr(new T[old.size()]), n(old.size()) {
-	for (int i = 0; i < this->n; ++i)
+Array<T>::Array(const Array<T> &old) : arr(new T[old.size()]), n(old.size()) {
+	for (int i = 0; i < static_cast<int>(this->n); ++i)
 		this->arr[i] = old[i];
 }
 
@@ -47,14 +47,14 @@ Array<T> &Array<T>::operator=(const Array<T> &old) {
 }
 
 template<typename T>
-T &Array<T>::operator[](int index) {
+T &Array<T>::operator[](int index) const {
 	if (index >= static_cast<int>(this->n) || index < 0)
 		throw OutOfRange();
 	return this->arr[index];
 }
 
 template<typename T>
-unsigned int Array<T>::size() {
+unsigned int Array<T>::size() const {
 	return this->n;
 }
 
