@@ -12,8 +12,7 @@
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(const std::string &name) : name(name) {
-	weapon_type = NULL;
+HumanB::HumanB(const std::string &name) : name(name), weapon_type(NULL) {
 }
 
 void	HumanB::setWeapon(Weapon &n_weapon_type) {

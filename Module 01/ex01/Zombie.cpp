@@ -19,13 +19,13 @@ Zombie::Zombie(std::string name) : name(name) {
 }
 
 Zombie::~Zombie() {
-	std::cout << name << " no longer need brain" << std::endl;
+	std::cout << name << ": no longer need brain" << std::endl;
 }
 
 void Zombie::announce(void) {
-	std::cout << '<' << name << "> BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-void Zombie::setName(std::string name) {
-	this->name = name;
+void Zombie::setName(std::string newName) {
+	this->name = newName;
 }

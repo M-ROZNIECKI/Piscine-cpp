@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 16:07:54 by mrozniec          #+#    #+#             */
-/*   Updated: 2022/01/10 20:06:57 by mrozniec         ###   ########.fr       */
+/*   Updated: 2022/02/09 20:28:55 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,12 @@ void Karen::complain(std::string level) {
 	std::string	lvl_call[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	void		(Karen::* lvl_func[4])() = {&Karen::debug, &Karen::info, \
 	&Karen::warning, &Karen::error};
-	for (int i = -1; i < 4; ++i)
-	{
-		if (level == lvl_call[i])
-			(this->*lvl_func[i])();
+
+	int i = 0;
+	while (i < 4 && level != lvl_call[i])
+		i++;
+	while (i < 4) {
+		(this->*lvl_func[i])();
+		break;
 	}
 }

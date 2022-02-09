@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PISCINE_CPP_ZOMBIE_HPP
-#define PISCINE_CPP_ZOMBIE_HPP
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 
 #include <iostream>
 
@@ -21,11 +21,11 @@ class Zombie {
 
 	public:
 		void announce(void);
-		void setName(std::string name);
+		void setName(std::string newName);
 
 		Zombie();
 		Zombie(std::string name);
 		~Zombie();
 };
 
-#endif //PISCINE_CPP_ZOMBIE_HPP
+#endif //ZOMBIE_HPP

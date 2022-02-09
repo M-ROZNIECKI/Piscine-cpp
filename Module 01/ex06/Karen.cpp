@@ -38,9 +38,12 @@ void Karen::complain(std::string level) {
 	std::string	lvl_call[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	void		(Karen::* lvl_func[4])() = {&Karen::debug, &Karen::info, \
 	&Karen::warning, &Karen::error};
-	for (int i = -1; i < 4; ++i)
-	{
-		if (level == lvl_call[i])
-			(this->*lvl_func[i])();
+
+	int i = 0;
+	while (i < 4 && level != lvl_call[i])
+		i++;
+	while (i < 4) {
+		(this->*lvl_func[i])();
+		break;
 	}
 }

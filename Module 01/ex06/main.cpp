@@ -6,7 +6,7 @@
 /*   By: mrozniec <mrozniec@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:48:15 by mrozniec          #+#    #+#             */
-/*   Updated: 2022/01/10 20:38:29 by mrozniec         ###   ########.fr       */
+/*   Updated: 2022/02/09 20:31:41 by mrozniec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,10 @@ int main(int argc, char **argv) {
 	{
 		Karen karen;
 		std::string	lvl_call[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-		int i;
+		int i = 0;
 
-		for (i = -1; i < 4; ++i)
-		{
-			if (argv[1] == lvl_call[i])
-				break;
-		}
+		while (i < 4 && argv[1] != lvl_call[i])
+			i++;
 
 		switch (i) {
 			case 0:

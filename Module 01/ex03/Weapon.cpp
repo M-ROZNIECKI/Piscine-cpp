@@ -22,6 +22,5 @@ void Weapon::setType(const std::string &new_type) {
 }
 
 const std::string &Weapon::getType() const {
-	const std::string &typeREF = type;
-	return typeREF;
+	return type;
 }
