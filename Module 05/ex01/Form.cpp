@@ -38,19 +38,19 @@ Form &Form::operator=(const Form &old) {
 	return *this;
 }
 
-const std::string &Form::getName() const {
+const	std::string &Form::getName() const {
 	return this->name;
 }
 
-bool Form::getSignature() const {
+const bool&	Form::getSignature() const {
 	return this->signature;
 }
 
-unsigned int Form::getSignGrade() const {
+const unsigned int&	Form::getSignGrade() const {
 	return this->signGrade;
 }
 
-unsigned int Form::getExecGrade() const {
+const unsigned int&	Form::getExecGrade() const {
 	return this->execGrade;
 }
 

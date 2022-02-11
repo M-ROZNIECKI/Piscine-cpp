@@ -33,7 +33,7 @@ class Bureaucrat {
 		Bureaucrat	&operator=(const Bureaucrat&);
 
 		const std::string&	getName() const;
-		unsigned int		getGrade() const;
+		const unsigned int&	getGrade() const;
 
 		class GradeTooHighExcept : public std::logic_error {
 			public:
