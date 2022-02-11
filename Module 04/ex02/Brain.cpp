@@ -17,10 +17,8 @@ Brain::Brain() {
 }
 
 Brain::Brain(std::string *things, int sizeTab) {
-	std::cout << "Brain with ideas was created" << std::endl;
-	for (int i = 0; i < 100 && i < sizeTab; i++) {
-		ideas[i] = things[i];
-	}
+	std::cout << "Brain with ideas is created" << std::endl;
+	this->setIdeas(things, sizeTab);
 }
 
 Brain::Brain(const Brain &old) {
@@ -45,7 +43,11 @@ const std::string *Brain::getIdeas() const {
 }
 
 void Brain::setIdeas(const std::string *things, int sizeTab) {
-	for (int i = 0; i < 100 && i < sizeTab ; i++) {
-		ideas[i] = things[i];
+	try {
+		for (int i = 0; i < 100 && i < sizeTab ; i++) {
+			ideas[i] = things[i];
+		}
+	} catch (std::exception & e) {
+		std::cerr << "wrong sizeTab" << std::endl;
 	}
 }

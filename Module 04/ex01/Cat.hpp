@@ -13,6 +13,7 @@
 #ifndef CAT_HPP
 #define CAT_HPP
 # include <iostream>
+# include <exception>
 # include "Animal.hpp"
 # include "Brain.hpp"
 

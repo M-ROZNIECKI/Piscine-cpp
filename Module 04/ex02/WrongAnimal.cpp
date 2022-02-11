@@ -34,7 +34,7 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal& old) {
 	return *this;
 }
 
-std::string WrongAnimal::getType() const {
+const std::string&	WrongAnimal::getType() const {
 	return this->type;
 }
 

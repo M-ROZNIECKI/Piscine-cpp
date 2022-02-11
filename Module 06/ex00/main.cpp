@@ -55,7 +55,10 @@ int main(int argc, char **argv) {
 			}
 		case 0x08:
 			try {
-				aDouble = std::atof(inputStr.c_str());
+				char	*strEnd;
+				aDouble = std::strtod(inputStr.c_str(), &strEnd);
+				if (strEnd[0] != 0)
+					throw std::exception();
 				aFloat	= static_cast<float>(aDouble);
 				aInt	= static_cast<int>(aDouble);
 				aChar	= static_cast<char>(aDouble);

@@ -54,6 +54,7 @@ int main() {
 	Animal* zoo[10] = {new Dog(), new Dog(), new Dog(), new Dog(), new Dog(),
 					   new Cat(), new Cat(), new Cat(), new Cat(), new Cat()};
 
+	std::cout << std::endl << std::endl;
 
 	Brain	a;
 	Brain	d(a);
@@ -66,12 +67,18 @@ int main() {
 	Brain	f(copied.getBrain());
 
 	Brain	c(b, 10);
+
 	for (int ind = 0; ind < 20; ind++) {
-		std::cout << "a[" << ind << "] = " << a.getIdeas()[ind];
-		std::cout << " c[" << ind << "] = " << c.getIdeas()[ind];
-		std::cout << " d[" << ind << "] = " << d.getIdeas()[ind];
-		std::cout << " e[" << ind << "] = " << c.getIdeas()[ind];
-		std::cout << " f[" << ind << "] = " << d.getIdeas()[ind];
+		std::string strA = a.getIdeas()[ind];
+		std::string strC = c.getIdeas()[ind];
+		std::string strD = d.getIdeas()[ind];
+		std::string strE = e.getIdeas()[ind];
+		std::string strF = f.getIdeas()[ind];
+		std::cout << "a[" << ind << "] = " << strA.insert(0, 10 - a.getIdeas()[ind].size(), ' ');
+		std::cout << " c[" << ind << "] = " << strC.insert(0, 10 - c.getIdeas()[ind].size(), ' ');
+		std::cout << " d[" << ind << "] = " << strD.insert(0, 10 - d.getIdeas()[ind].size(), ' ');
+		std::cout << " e[" << ind << "] = " << strE.insert(0, 10 - e.getIdeas()[ind].size(), ' ');
+		std::cout << " f[" << ind << "] = " << strF.insert(0, 10 - f.getIdeas()[ind].size(), ' ');
 		std::cout << std::endl;
 	}
 
