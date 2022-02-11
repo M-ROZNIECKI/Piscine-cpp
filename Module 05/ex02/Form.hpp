@@ -38,9 +38,9 @@ public:
 	Form	&operator=(const Form&);
 
 	const std::string&	getName() const;
-	bool				getSignature() const;
-	unsigned int		getSignGrade() const;
-	unsigned int		getExecGrade() const;
+	const bool&			getSignature() const;
+	const unsigned int&	getSignGrade() const;
+	const unsigned int&	getExecGrade() const;
 
 	static void		checkLvl(unsigned int, const Bureaucrat&);
 	virtual void	beSigned(Bureaucrat&) = 0;
