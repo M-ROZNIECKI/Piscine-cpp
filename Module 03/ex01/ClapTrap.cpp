@@ -39,19 +39,19 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &a) {
 	return *this;
 }
 
-std::string ClapTrap::getName() const {
+const std::string& ClapTrap::getName() const {
 	return Name;
 }
 
-unsigned int ClapTrap::getHp() const {
+const unsigned int& ClapTrap::getHp() const {
 	return HitPoints;
 }
 
-unsigned int ClapTrap::getEp() const {
+const unsigned int& ClapTrap::getEp() const {
 	return EnergyPoints;
 }
 
-unsigned int ClapTrap::getDmg() const {
+const unsigned int& ClapTrap::getDmg() const {
 	return AttackDamage;
 }
 

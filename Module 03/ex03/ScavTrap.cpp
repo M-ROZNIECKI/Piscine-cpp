@@ -34,6 +34,15 @@ ScavTrap::~ScavTrap() {
 	std::cout << "destructor of ScavTrap " << Name << " Called" << std::endl;
 }
 
+ScavTrap &ScavTrap::operator=(const ScavTrap &old) {
+	std::cout << "assignation overload operator for ScavTrap called" << std::endl;
+	Name = old.getName();
+	AttackDamage = old.getDmg();
+	EnergyPoints = old.getEp();
+	HitPoints = old.getHp();
+	return *this;
+}
+
 void ScavTrap::attack(const std::string &target) {
 	if (HitPoints > 0 && EnergyPoints > 0) {
 		std::cout << "ScavTrap " << Name << " attacks " << target << ", causing ";

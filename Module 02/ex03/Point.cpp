@@ -19,10 +19,13 @@
 Point::Point() : x(Fixed()), y(Fixed()) {
 }
 
-Point::Point(const Fixed x, const Fixed y) : x(x), y(y) {
+Point::Point(const float x, const float y) : x(Fixed(x)), y(Fixed(y)) {
 }
 
-Point::Point(const Point &a) : x(a.getX()), y(a.getY()) {
+Point::Point(const Fixed x, const Fixed y) : x(Fixed(x)), y(Fixed(y)) {
+}
+
+Point::Point(const Point &a) : x(Fixed(a.getX())), y(Fixed(a.getY())) {
 }
 
 Point::~Point() {

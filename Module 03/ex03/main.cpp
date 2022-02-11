@@ -30,4 +30,6 @@ int main() {
 	std::cout << "default_frag Name is " << default_frag.getName() << std::endl;
 	default_frag.attack(test1.getName());
 	test1.takeDamage(default_frag.getDmg());
+
+	return 0;
 }

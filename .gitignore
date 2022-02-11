@@ -19,9 +19,23 @@ Module 02/ex02/fixed
 Module 02/ex03/fixed
 
 Module 03/ex00/borderland
+Module 03/ex00/main.o
+Module 03/ex00/ClapTrap.o
 Module 03/ex01/borderland
+Module 03/ex01/main.o
+Module 03/ex01/ScavTrap.o
+Module 03/ex01/ClapTrap.o
 Module 03/ex02/borderland
+Module 03/ex02/ScavTrap.o
+Module 03/ex02/main.o
+Module 03/ex02/FragTrap.o
+Module 03/ex02/ClapTrap.o
 Module 03/ex03/borderland
+Module 03/ex03/ScavTrap.o
+Module 03/ex03/main.o
+Module 03/ex03/FragTrap.o
+Module 03/ex03/DiamondTrap.o
+Module 03/ex03/ClapTrap.o
 
 Module 04/ex00/catsndogs
 Module 04/ex01/catsndogs

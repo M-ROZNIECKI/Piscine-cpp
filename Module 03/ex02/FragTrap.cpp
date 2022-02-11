@@ -34,19 +34,15 @@ FragTrap::~FragTrap() {
 	std::cout << "destructor of FragTrap " << Name << " Called" << std::endl;
 }
 
-void FragTrap::attack(const std::string &target) {
-	if (HitPoints > 0 && EnergyPoints > 0) {
-		std::cout << "FragTrap " << Name << " attacks " << target << ", causing ";
-		std::cout << AttackDamage << " points of damage!" << std::endl;
-		EnergyPoints--;
-	}
-	else if (HitPoints > 0)
-		std::cout << "not enough Energy Points" << std::endl;
-	else
-		std::cout << "FragTrap is broken an can't attack" << std::endl;
+FragTrap &FragTrap::operator=(const FragTrap &old) {
+	std::cout << "assignation overload operator for FragTrap called" << std::endl;
+	Name = old.getName();
+	AttackDamage = old.getDmg();
+	EnergyPoints = old.getEp();
+	HitPoints = old.getHp();
+	return *this;
 }
 
 void FragTrap::highFivesGuys() {
 	std::cout << "Hey guys lets do a high five" << std::endl;
 }
-

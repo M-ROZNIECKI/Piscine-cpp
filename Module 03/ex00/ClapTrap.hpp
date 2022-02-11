@@ -30,10 +30,10 @@ class ClapTrap {
 
 		ClapTrap	&operator=(const ClapTrap&);
 
-		std::string		getName() const;
-		unsigned int	getHp() const;
-		unsigned int	getEp() const;
-		unsigned int	getDmg() const;
+		const std::string&	getName() const;
+		const unsigned int&	getHp() const;
+		const unsigned int&	getEp() const;
+		const unsigned int&	getDmg() const;
 
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);

@@ -13,6 +13,7 @@
 #ifndef FRAGTRAP_HPP
 #define FRAGTRAP_HPP
 # include "ClapTrap.hpp"
+# include <iostream>
 
 class FragTrap : public virtual ClapTrap {
 
@@ -22,7 +23,7 @@ class FragTrap : public virtual ClapTrap {
 		FragTrap(const FragTrap&);
 		~FragTrap();
 
-		void	attack(const std::string& target);
+		FragTrap&	operator=(const FragTrap&);
 
 		void	highFivesGuys();
 };

@@ -49,3 +49,12 @@ void ScavTrap::attack(const std::string &target) {
 void ScavTrap::guardGate() {
 	std::cout << "ScavTrap " << Name << " is now in Gate keeper mode" << std::endl;
 }
+
+ScavTrap &ScavTrap::operator=(const ScavTrap &old) {
+	std::cout << "assignation overload operator for ScavTrap called" << std::endl;
+	Name = old.getName();
+	AttackDamage = old.getDmg();
+	EnergyPoints = old.getEp();
+	HitPoints = old.getHp();
+	return *this;
+}

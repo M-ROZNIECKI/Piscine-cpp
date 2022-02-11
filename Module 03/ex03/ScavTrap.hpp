@@ -13,6 +13,7 @@
 #ifndef SCAVTRAP_HPP
 #define SCAVTRAP_HPP
 # include "ClapTrap.hpp"
+# include <iostream>
 
 class ScavTrap : public virtual ClapTrap {
 
@@ -22,7 +23,9 @@ class ScavTrap : public virtual ClapTrap {
 		ScavTrap(const ScavTrap&);
 		~ScavTrap();
 
-		void	attack(const std::string& target);
+		ScavTrap	&operator=(const ScavTrap&);
+
+		virtual void	attack(const std::string& target);
 
 		void	guardGate();
 };

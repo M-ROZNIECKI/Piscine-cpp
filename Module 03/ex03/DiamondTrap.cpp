@@ -37,11 +37,25 @@ DiamondTrap::~DiamondTrap() {
 	std::cout << "destructor of DiamondTrap " << Name << " Called" << std::endl;
 }
 
+DiamondTrap &DiamondTrap::operator=(const DiamondTrap &old) {
+	std::cout << "assignation overload operator for DiamondTrap called" << std::endl;
+	Name = old.getDName();
+	ClapTrap::Name = old.getName();
+	AttackDamage = old.getDmg();
+	EnergyPoints = old.getEp();
+	HitPoints = old.getHp();
+	return *this;
+}
+
+const std::string &DiamondTrap::getDName() const {
+	return this->Name;
+}
+
 void DiamondTrap::whoAmI() {
 	std::cout << "My ClapTrap name is " << ClapTrap::getName() << " and my DiamondTrap name is ";
 	std::cout << this->Name << std::endl;
 }
 
 void DiamondTrap::attack(const std::string &target) {
-	FragTrap::attack(target);
+	ScavTrap::attack(target);
 }

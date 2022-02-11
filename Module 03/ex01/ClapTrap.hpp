@@ -26,14 +26,14 @@ class ClapTrap {
 		ClapTrap();
 		ClapTrap(const std::string& name);
 		ClapTrap(const ClapTrap&);
-		~ClapTrap();
+		virtual ~ClapTrap();
 
 		ClapTrap	&operator=(const ClapTrap&);
 
-		std::string		getName() const;
-		unsigned int	getHp() const;
-		unsigned int	getEp() const;
-		unsigned int	getDmg() const;
+		const std::string&	getName() const;
+		const unsigned int&	getHp() const;
+		const unsigned int&	getEp() const;
+		const unsigned int&	getDmg() const;
 
 		virtual void	attack(const std::string& target);
 		virtual void	takeDamage(unsigned int amount);
