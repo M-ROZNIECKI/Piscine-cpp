@@ -33,7 +33,6 @@ public:
 
 	const std::string&	getTarget() const;
 
-	void	beSigned(Bureaucrat&);
 	void	execute(Bureaucrat const & executor) const;
 
 	class NoSignatureExcept : public std::logic_error {

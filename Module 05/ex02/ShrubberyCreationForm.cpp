@@ -40,11 +40,6 @@ const std::string &ShrubberyCreationForm::getTarget() const {
 	return this->target;
 }
 
-void ShrubberyCreationForm::beSigned(Bureaucrat &old) {
-	checkLvl(this->getSignGrade(), old);
-	this->setSignature(true);
-}
-
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
 	if (!this->getSignature())
 		throw NoSignatureExcept();

@@ -22,29 +22,29 @@ int main() {
 		Bureaucrat d;
 		std::cout << a << b << c << d << std::endl;
 	} catch (std::exception & e) {
-		std::cout << e.what();
+		std::cout << e.what() << std::endl;
 	}
 	try {
 		Bureaucrat d("test4", 180);
 	} catch (std::exception & e) {
-		std::cout << e.what();
+		std::cout << e.what() << std::endl;
 	}
 	try {
 		Bureaucrat a("test5");
 		a.decGrade();
 	} catch (std::exception & e) {
-		std::cout << e.what();
+		std::cout << e.what() << std::endl;
 	}
 	try {
 		Bureaucrat a("test6", 1);
 		a.incGrade();
 	} catch (std::exception & e) {
-		std::cout << e.what();
+		std::cout << e.what() << std::endl;
 	}
 	try {
 		Bureaucrat a("test7", 0);
 	} catch (std::exception & e) {
-		std::cout << e.what();
+		std::cout << e.what() << std::endl;
 	}
 */
 	try {

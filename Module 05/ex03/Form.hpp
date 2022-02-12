@@ -43,7 +43,7 @@ public:
 	const unsigned int&	getExecGrade() const;
 
 	static void		checkLvl(unsigned int, const Bureaucrat&);
-	virtual void	beSigned(Bureaucrat&) = 0;
+	virtual void	beSigned(Bureaucrat&);
 	virtual void	execute(Bureaucrat const & executor) const = 0;
 
 	class GradeTooHighExcept : public std::logic_error {

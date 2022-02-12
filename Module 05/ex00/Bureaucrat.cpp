@@ -57,10 +57,10 @@ void Bureaucrat::decGrade() {
 	grade++;
 }
 
-Bureaucrat::GradeTooHighExcept::GradeTooHighExcept() : std::logic_error("Grade was set too high\n") {
+Bureaucrat::GradeTooHighExcept::GradeTooHighExcept() : std::logic_error("Grade was set too high") {
 }
 
-Bureaucrat::GradeTooLowExcept::GradeTooLowExcept() : std::logic_error("Grade was set too low\n") {
+Bureaucrat::GradeTooLowExcept::GradeTooLowExcept() : std::logic_error("Grade was set too low") {
 }
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &a) {

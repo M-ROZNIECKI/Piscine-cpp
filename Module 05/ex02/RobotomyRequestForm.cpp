@@ -43,11 +43,6 @@ const std::string &RobotomyRequestForm::getTarget() const {
 	return this->target;
 }
 
-void RobotomyRequestForm::beSigned(Bureaucrat &old) {
-	checkLvl(this->getSignGrade(), old);
-	this->setSignature(true);
-}
-
 void RobotomyRequestForm::execute(const Bureaucrat &executor) const {
 	if (!this->getSignature())
 		throw NoSignatureExcept();

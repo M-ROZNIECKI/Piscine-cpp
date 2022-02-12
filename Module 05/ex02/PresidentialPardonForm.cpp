@@ -41,11 +41,6 @@ const std::string &PresidentialPardonForm::getTarget() const {
 	return this->target;
 }
 
-void PresidentialPardonForm::beSigned(Bureaucrat &old) {
-	checkLvl(this->getSignGrade(), old);
-	this->setSignature(true);
-}
-
 void PresidentialPardonForm::execute(const Bureaucrat &executor) const {
 	if (!this->getSignature())
 		throw NoSignatureExcept();

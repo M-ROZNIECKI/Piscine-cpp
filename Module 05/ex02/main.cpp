@@ -24,37 +24,40 @@ int main() {
 		Bureaucrat d;
 		std::cout << a << b << c << d << std::endl;
 	} catch (std::exception & e) {
-		std::cout << e.what();
+		std::cout << e.what() << std::endl;
 	}
 	try {
 		Bureaucrat d("test4", 180);
 	} catch (std::exception & e) {
-		std::cout << e.what();
+		std::cout << e.what() << std::endl;
 	}
 	try {
 		Bureaucrat a("test5");
 		a.decGrade();
 	} catch (std::exception & e) {
-		std::cout << e.what();
+		std::cout << e.what() << std::endl;
 	}
 	try {
 		Bureaucrat a("test6", 1);
 		a.incGrade();
 	} catch (std::exception & e) {
-		std::cout << e.what();
+		std::cout << e.what() << std::endl;
 	}
 	try {
 		Bureaucrat a("test7", 0);
 	} catch (std::exception & e) {
-		std::cout << e.what();
+		std::cout << e.what() << std::endl;
 	}
+	std::cout << std::endl << std::endl;
 */
+	std::cout << "test the different type of Form created:" << std::endl;
+
 	try {
 		Bureaucrat	test1("test1", 25);
 		Bureaucrat	test2("test2", 4);
 //		PresidentialPardonForm	a42;
-		ShrubberyCreationForm	a42;
-//		RobotomyRequestForm	a42;
+//		ShrubberyCreationForm	a42;
+		RobotomyRequestForm	a42;
 		std::cout << a42;
 		test1.signForm(a42);
 		test2.signForm(a42);
@@ -72,6 +75,11 @@ int main() {
 	} catch (std::exception & e) {
 		std::cout << e.what() << std::endl;
 	}
+
+	std::cout << std::endl << std::endl;
+
+	std::cout << "Test to exec a form who was not signed:" << std::endl;
+
 	try {
 		Bureaucrat	test("test", 4);
 //		PresidentialPardonForm	a42;
