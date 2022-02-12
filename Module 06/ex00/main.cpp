@@ -19,7 +19,7 @@
 
 int main(int argc, char **argv) {
 	char	aChar;
-	int		aInt, sign;
+	int		aInt, sign = 0;
 	float	aFloat;
 	double	aDouble;
 	std::string	inputStr = argv[1];
@@ -28,13 +28,12 @@ int main(int argc, char **argv) {
 		std::cout << "error number of argument not respected" << std::endl ;
 		return 1;
 	}
-
 	Convert	conv(inputStr);
 	conv.checkType();
 	if (inputStr[0] == '+' || inputStr[0] == '-')
 		sign = 1;
 	switch (conv.getType()) {
-		case 0x01:	aChar	= inputStr[0];
+		case 0x01:	aChar	= conv.getString()[0];
 			aInt	= static_cast<int>(aChar);
 			aFloat	= static_cast<float>(aChar);
 			aDouble	= static_cast<double>(aChar);
@@ -82,7 +81,7 @@ int main(int argc, char **argv) {
 			return 2;
 	}
 
-	if (aDouble > 127 || aDouble < 0 || aDouble != aDouble)
+	if (aDouble > 127 || aDouble < -128 || aDouble != aDouble)
 		std::cout << "char: impossible" << std::endl;
 	else if (!std::isprint(aChar))
 		std::cout << "char: Non displayable" << std::endl;

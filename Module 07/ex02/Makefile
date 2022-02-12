@@ -18,15 +18,20 @@ SRC =		$(wildcard *.cpp)
 
 HEADER =	$(wildcard *.hpp) $(wildcard *.tpp)
 
+OBJ =	$(SRC:.cpp=.o)
+
 all: $(NAME)
 
-$(NAME): $(SRC) $(HEADER)
-		@clang++ $(FLAGS) -O3 -o$(NAME) $(SRC)
+$(NAME): $(OBJ) $(HEADER)
+		@c++ $(FLAGS) -O3 -o$(NAME) $(OBJ)
+
+%.o: %.cpp $(HEADER)
+		@c++ -o $@ -c $< $(FLAGS)
 
 .PHONY: clean fclean re all
 
 clean:
-		@/bin/rm $(NAME)
+		@/bin/rm -rf $(OBJ)
 
 fclean: clean
 		@/bin/rm -rf $(NAME)

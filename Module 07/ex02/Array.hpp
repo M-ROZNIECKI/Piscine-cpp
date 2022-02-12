@@ -18,24 +18,19 @@ template<typename T>
 class Array {
 
 	private:
-		T*				arr;
-		unsigned int	n;
+		T*		arr;
+		size_t	n;
 
 	public:
 		Array();
-		Array(unsigned int n);
+		Array(size_t n);
 		Array(const Array<T>&);
 		~Array();
 
 		Array<T>&	operator=(const Array<T>&);
-		T&			operator[](int index) const;
+		T&			operator[](size_t index) const;
 
-		unsigned int	size() const;
-
-		class OutOfRange : public std::logic_error {
-			public:
-				OutOfRange();
-		};
+		size_t	size() const;
 
 };
 

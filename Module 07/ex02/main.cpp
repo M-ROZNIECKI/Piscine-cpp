@@ -62,6 +62,5 @@ int main(int, char**)
 		numbers[i] = rand();
 	}
 	delete [] mirror;//
-	std::cout << "every thing was ok" << std::endl;
 	return 0;
 }

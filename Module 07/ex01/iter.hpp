@@ -12,11 +12,12 @@
 
 #ifndef ITER_HPP
 #define ITER_HPP
+#include <iostream>
 
-template<typename Tab, typename TLength>
-void	iter(const Tab* tab, TLength l, void (*fct)(const Tab& tab)) {
-	for (int i = 0; i < l; ++i)
-		(*fct)(tab[i]);
+template<typename Tab, typename Func>
+void	iter(const Tab* tab, size_t l, Func f) {
+	for (size_t i = 0; i < l; ++i)
+		f(tab[i]);
 }
 
 #endif //ITER_HPP
