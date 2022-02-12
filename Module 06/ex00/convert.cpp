@@ -39,15 +39,14 @@ void Convert::checkType() {
 
 	if (inputStr[0] == '+' || inputStr[0] == '-')
 		sign = 1;
-	if (inputStr.length() == 4 && inputStr[0] == '\\' &&
+	if (inputStr.length() <= 4 && inputStr[0] == '\\' &&
 	inputStr.find_first_not_of("01234567", 1) == std::string::npos) {
 		temp = strtol(inputStr.c_str() + 1, NULL, 8);
-		// arriver a 256 ca reboucle, tester dans la console print '\576' et print '\176'
 		if (temp > 255)
 			temp -= 256;
 		if (temp < 128) {
 			strTemp = new char[2];
-			strTemp[0] = temp;
+			strTemp[0] = static_cast<char>(temp);
 			strTemp[1] = 0;
 			inputStr = strTemp;
 			delete strTemp;
@@ -56,7 +55,7 @@ void Convert::checkType() {
 		}
 		else if (temp < 256) {
 			strTemp = new char[2];
-			strTemp[0] = 127 - temp;
+			strTemp[0] = static_cast<char>(127 - temp);
 			strTemp[1] = 0;
 			inputStr = strTemp;
 			delete strTemp;
@@ -78,10 +77,10 @@ void Convert::checkType() {
 		inputType = 0x02;
 }
 
-int Convert::getType() const {
+const int&	Convert::getType() const {
 	return inputType;
 }
 
-std::string Convert::getString() const {
+const std::string&	Convert::getString() const {
 	return inputStr;
 }

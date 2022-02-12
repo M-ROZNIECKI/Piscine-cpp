@@ -37,9 +37,9 @@ class Convert {
 
 		Convert&	operator=(const Convert&);
 
-		void		checkType();
-		int			getType() const;
-		std::string	getString() const;
+		void				checkType();
+		const int&			getType() const;
+		const std::string&	getString() const;
 };
 
 
