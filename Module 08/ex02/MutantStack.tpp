@@ -1,45 +1,63 @@
-template <class T, class Container>
-typename MutantStack<T, Container>::iterator MutantStack<T, Container>::begin() const {
-    return iterator(*this);
-}
 
-template <class T, class Container>
-typename MutantStack<T, Container>::iterator MutantStack<T, Container>::end() const {
-    return iterator(*this, this->size());
-}
+#include "MutantStack.hpp"
 
-template <class T, class Container>
-MutantStack<T, Container>::iterator::iterator(const MutantStack &stack, long position): position(position) {
-    MutantStack<T, Container> clone = MutantStack(stack);
-    for (; !clone.empty(); clone.pop())
-        content.push_back(clone.top());
-
-    std::reverse(content.begin(), content.end());
+template<class T, class Container>
+MutantStack<T, Container>::MutantStack() : std::stack<T, Container>() {
 }
 
 template<class T, class Container>
-MutantStack<T, Container>::iterator::~iterator() {
-    content.clear();
+MutantStack<T, Container>::MutantStack(const MutantStack<T> &old) :
+std::stack<T, Container>(old) {
 }
 
-template <class T, class Container>
-void MutantStack<T, Container>::iterator::operator++() {
-    //if (position > content.size())
-        position++;
+template<class T, class Container>
+MutantStack<T, Container>::~MutantStack() {
 }
 
-template <class T, class Container>
-void MutantStack<T, Container>::iterator::operator--() {
-    if (position >= 1)
-        position--;
+template<class T, class Container>
+MutantStack<T, Container> &MutantStack<T, Container>::operator=(const MutantStack<T, Container> &old) {
+	if (this == &old)
+		return *this;
+	this->c = old.c;
+	return *this;
 }
 
-template <class T, class Container>
-bool MutantStack<T, Container>::iterator::operator!=(const iterator &other) const {
-    return other.content != content || other.position != position;
+template<class T, class Container>
+typename MutantStack<T, Container>::iterator MutantStack<T, Container>::begin() {
+	return this->c.begin();
 }
 
-template <class T, class Container>
-T MutantStack<T, Container>::iterator::operator*() const {
-    return content.at(position);
+template<class T, class Container>
+typename MutantStack<T, Container>::const_iterator MutantStack<T, Container>::begin() const {
+	return this->c.begin();
+}
+
+template<class T, class Container>
+typename MutantStack<T, Container>::reverse_iterator MutantStack<T, Container>::rbegin() {
+	return this->c.rbegin();
+}
+
+template<class T, class Container>
+typename MutantStack<T, Container>::const_reverse_iterator MutantStack<T, Container>::rbegin() const {
+	return this->c.rbegin;
+}
+
+template<class T, class Container>
+typename MutantStack<T, Container>::iterator MutantStack<T, Container>::end() {
+	return this->c.end();
+}
+
+template<class T, class Container>
+typename MutantStack<T, Container>::const_iterator MutantStack<T, Container>::end() const {
+	return this->c.end();
+}
+
+template<class T, class Container>
+typename MutantStack<T, Container>::reverse_iterator MutantStack<T, Container>::rend() {
+	return this->c.rend();
+}
+
+template<class T, class Container>
+typename MutantStack<T, Container>::const_reverse_iterator MutantStack<T, Container>::rend() const {
+	return this->c.rend();
 }
