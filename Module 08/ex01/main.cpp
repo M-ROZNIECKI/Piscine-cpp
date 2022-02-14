@@ -42,7 +42,7 @@ int main() {
     for (unsigned int i = 0; i < sp3.getMax(); i++) {
         int r = rand() % 100000;
         input.insert(r);
-        std::cout << r << " ";
+//        std::cout << r << " ";
     }
     std::cout << std::endl;
 

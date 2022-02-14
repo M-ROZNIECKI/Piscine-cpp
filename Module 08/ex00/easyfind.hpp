@@ -1,7 +1,6 @@
-#ifndef PISCINE_CPP_EASYFIND_HPP
-#define PISCINE_CPP_EASYFIND_HPP
+#ifndef EASYFIND_HPP
+#define EASYFIND_HPP
 
-#include <vector>
 #include <algorithm>
 #include <stdexcept>
 
@@ -14,4 +13,4 @@ int easyfind(const T &container, int target) {
         return std::distance(container.begin(), res);
 }
 
-#endif //PISCINE_CPP_EASYFIND_HPP
+#endif //EASYFIND_HPP

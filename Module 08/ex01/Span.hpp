@@ -2,8 +2,6 @@
 #ifndef SPAN_HPP
 #define SPAN_HPP
 
-
-#include "Span.hpp"
 #include <set>
 #include <algorithm>
 
@@ -13,9 +11,9 @@ class Span {
         std::set<int> set;
 
         void spanPossible() const;
+		Span();
 
     public:
-        Span();
         Span(unsigned int max);
         Span(const Span &clone);
         ~Span();

@@ -1,4 +1,5 @@
 #include "easyfind.hpp"
+#include <vector>
 #include <iostream>
 #include <list>
 
@@ -14,13 +15,13 @@ int main() {
     vec.push_back(10);
     vec.push_back(0);
 
-    std::cout << "4 is in position: " << easyfind<std::vector<int> >(vec, 4) << std::endl;
+    std::cout << "4 is in position: " << easyfind(vec, 4) << std::endl;
     try {
-        std::cout << "42 is in position: " << easyfind<std::vector<int> >(vec, 42) << std::endl;
+        std::cout << "42 is in position: " << easyfind(vec, 42) << std::endl;
     } catch (std::logic_error &e) {
         std::cout << e.what() << std::endl;
     }
-    std::cout << "-1 is in position: " << easyfind<std::vector<int> >(vec, -1) << std::endl;
+    std::cout << "-1 is in position: " << easyfind(vec, -1) << std::endl;
 
     std::cout << std::endl << "List test" << std::endl;
     std::list<int> list;
@@ -32,8 +33,8 @@ int main() {
     list.push_back(-1);
     list.push_back(10);
     list.push_back(0);
-    std::cout << "5 is in position: " << easyfind<std::list<int> >(list, 5) << std::endl;
-    std::cout << "0 is in position: " << easyfind<std::list<int> >(list, 0) << std::endl;
+    std::cout << "5 is in position: " << easyfind(list, 5) << std::endl;
+    std::cout << "0 is in position: " << easyfind(list, 0) << std::endl;
 
 	return 0;
 }
