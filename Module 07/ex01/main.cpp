@@ -18,11 +18,18 @@ void	print_test(T t) {
 	std::cout << t << std::endl;
 }
 
-int main() {
-	std::string	s[5] = {"hello", "hi", "iter", "is", "the nuclear future"};
-	int			i[5] = {0, 1, 2, 3, 4};
+template<typename T>
+void	inc_test(T t) {
+	t++;
+}
 
-	iter(s, 5, print_test);
-	iter(i, 5, print_test);
+int main() {
+	const std::string	s[5] = {"hello", "hi", "iter", "is", "the nuclear future"};
+	int	i[5] = {0, 1, 2, 3, 4};
+
+	iter(s, 5, &print_test);
+	iter(i, 5, &print_test);
+	iter(i, 5, &inc_test);
+	iter(i, 5, &print_test);
 	return 0;
 }

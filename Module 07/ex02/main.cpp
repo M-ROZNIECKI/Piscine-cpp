@@ -32,6 +32,7 @@ int main(int, char**)
 		Array<int> test(tmp);
 	}
 
+	std::cout << "Test if mirror[i] and numbers[i] are the same: ";
 	for (int i = 0; i < MAX_VAL; i++)
 	{
 		if (mirror[i] != numbers[i])
@@ -40,6 +41,9 @@ int main(int, char**)
 			return 1;
 		}
 	}
+	std::cout << "OK" << std::endl;
+
+	std::cout << "Test with a not valid index" << std::endl;
 	try
 	{
 		numbers[-2] = 0;
@@ -61,6 +65,7 @@ int main(int, char**)
 	{
 		numbers[i] = rand();
 	}
+	std::cout << "numbers.size() = " << numbers.size() << std::endl;
 	delete [] mirror;//
 	return 0;
 }
